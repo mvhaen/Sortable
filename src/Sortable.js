@@ -223,20 +223,21 @@ let dragEl,
 	 * @return {HTMLElement}   Element of the first found nearest Sortable
 	 */
 	_detectNearestEmptySortable = function(x, y) {
-		let ret;
-		sortables.some((sortable) => {
-			if (lastChild(sortable)) return;
+		return sortables[0];
+		// let ret;
+		// sortables.some((sortable) => {
+		// 	if (lastChild(sortable)) return;
 
-			let rect = getRect(sortable),
-				threshold = sortable[expando].options.emptyInsertThreshold,
-				insideHorizontally = x >= (rect.left - threshold) && x <= (rect.right + threshold),
-				insideVertically = y >= (rect.top - threshold) && y <= (rect.bottom + threshold);
+		// 	let rect = getRect(sortable),
+		// 		threshold = sortable[expando].options.emptyInsertThreshold,
+		// 		insideHorizontally = x >= (rect.left - threshold) && x <= (rect.right + threshold),
+		// 		insideVertically = y >= (rect.top - threshold) && y <= (rect.bottom + threshold);
 
-			if (threshold && insideHorizontally && insideVertically) {
-				return (ret = sortable);
-			}
-		});
-		return ret;
+		// 	if (threshold && insideHorizontally && insideVertically) {
+		// 		return (ret = sortable);
+		// 	}
+		// });
+		// return ret;
 	},
 
 	_prepareGroup = function (options) {
